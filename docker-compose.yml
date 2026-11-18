@@ -1,0 +1,14 @@
+services:
+  portfolio:
+    image: ${DOCKERHUB_USER}/portfolio-nextjs:${TAG:-latest}
+    container_name: portfolio-nextjs
+    ports:
+      # 3001 sur la machine car Backstage utilise deja 3000.
+      # Pour exposer 3000 : HOST_PORT=3000
+      - "${HOST_PORT:-3001}:3000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
