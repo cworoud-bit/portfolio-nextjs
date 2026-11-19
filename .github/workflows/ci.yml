@@ -42,13 +42,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Deploy (docker compose)
-        shell: pwsh
+        shell: powershell
         run: |
           docker compose pull
           docker compose up -d
 
       - name: Health check
-        shell: pwsh
+        shell: powershell
         run: |
           Start-Sleep -Seconds 15
           $r = Invoke-WebRequest http://localhost:3001 -UseBasicParsing
