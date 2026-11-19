@@ -16,7 +16,7 @@ export default function Home() {
 
       <section>
         <h2>Contact</h2>
-        <p>email@exemple.com</p>
+        <p>cworoud@gmail.com</p>
       </section>
 
       <footer>Portfolio v1</footer>
